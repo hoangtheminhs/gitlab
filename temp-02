@@ -1,6 +1,7 @@
 Option 1: use script + manual processes
 + Downtime: 15-30s
 + Recovery handling depends on manual processes
++ No need to install additional services
 
 Option 2: add a new sentinel 
 + Downtime: 5s-7s
