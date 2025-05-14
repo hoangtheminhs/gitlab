@@ -1,12 +1,19 @@
 Option 1: use script + manual processes
 + Downtime: 15-30s
 + Recovery handling depends on manual processes
-+ Split-Brain: 2 masters in case of a network failure
+
 Option 2: add a new sentinel 
 + Downtime: 5s-7s
 + Recovery handling auto
-+ Split-Brain: No
- 
++ Easier manual handling in failures
+
+Option 3: use Redis cluster
++ Downtime: 0s
++ Remove sentinel
++ Major change in architecture
++ More complex, requires understanding of slots
++ Suitable for large, sharded environments
+
 -----------------------script-----------------------
 - Server-01(master+sentinel): 192.168.10.1
 - Server-02(slave+sentinel):  192.168.10.2
