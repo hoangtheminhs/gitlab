@@ -1,3 +1,4 @@
 Redis:
 1) High availability with Redis Sentinel: https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/
 2) 3 sentinel, 1 master, 1 slave: https://severalnines.com/blog/redis-high-availability-architecture-sentinel/
+3) cluster: https://viblo.asia/p/phan-8-cai-dat-redis-cluster-kiem-tra-cluster-YWOZrPmv5Q0
