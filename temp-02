@@ -1,0 +1,25 @@
+Option 1: use script + manual processes
++ Downtime: 15-30s
++ Recovery handling depends on manual processes
++ Split-Brain: 2 masters in case of a network failure
+Option 2: add a new sentinel 
++ Downtime: 5s-7s
++ Recovery handling auto
++ Split-Brain: No
+ 
+-----------------------script-----------------------
+- Server-01(master+sentinel): 192.168.10.1
+- Server-02(slave+sentinel):  192.168.10.2
+1) Shutdown server Server-01 => server-02 slave
+2) Swith server-02: slave => master
+  - redis-cli -p 7001 SLAVEOF NO ONE
+3) Update sentinel server-02
+  - redis-cli -p 7000 SENTINEL remove mymaster
+  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7000 2
+4) Up server Server-01 
+5) Update sentinel server-01
+  - redis-cli -p 7000 SENTINEL remove mymaster
+  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7000 2
+6) Swith server-01: master => slave
+  - redis-cli -p 7001 SLAVEOF 192.168.10.2 7001
+----------------------------------------------
