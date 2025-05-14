@@ -5,7 +5,7 @@ Option 1: use script + manual processes
 Option 2: add a new sentinel 
 + Downtime: 5s-7s
 + Recovery handling auto
-+ Easier manual handling in failures
++ Easier handling in failures
 
 Option 3: use Redis cluster
 + Downtime: 0s
