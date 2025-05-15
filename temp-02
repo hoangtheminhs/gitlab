@@ -23,11 +23,11 @@ Option 3: use Redis cluster
   - redis-cli -p 7001 SLAVEOF NO ONE
 3) Update sentinel server-02
   - redis-cli -p 7000 SENTINEL remove mymaster
-  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7000 2
+  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7001 1
 4) Up server Server-01 
 5) Update sentinel server-01
   - redis-cli -p 7000 SENTINEL remove mymaster
-  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7000 2
+  - redis-cli -p 7000 SENTINEL monitor mymaster 192.168.10.1 7001 1
 6) Swith server-01: master => slave
   - redis-cli -p 7001 SLAVEOF 192.168.10.2 7001
 ----------------------------------------------
